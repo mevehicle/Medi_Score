@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class RecordResults {
-    public static Patient recordResult(){
+    public static Patient recordResults(){
 
         boolean valid = false; // Variable to validate keyboard input
 
@@ -15,28 +15,31 @@ public class RecordResults {
         AirOrOxygen newPatientBreathing = null;
         String ConsciousnessString = "";
         LevelOfConsciousness newPatientConsciousness = null;
+        String newPatientRespirationString = "";
         int newPatientRespiration = 0;
+        String newPatientSaturationString = "";
         int newPatientSaturation = 0;
+        String newPatientTemperatureString = "";
         float  newPatientTemperature = 0;
 
         while (!valid) {
             System.out.println("Please enter the patient's first name: ");
             newPatientFirstName = sc.nextLine();
-            valid = Validation.validateTextField(newPatientFirstName, (byte) 20);
+            valid = Validation.validateTextField(newPatientFirstName, 20);
         }
 
         valid = false;  // re-initialise valid after each field has been checked
         while (!valid) {
-            System.out.println("Enter the patient's last name: ");
+            System.out.println("\nEnter the patient's last name: ");
             newPatientLastName = sc.nextLine();
-            valid = Validation.validateTextField(newPatientLastName, (byte) 20);
+            valid = Validation.validateTextField(newPatientLastName, 20);
         }
 
         valid = false;
         while (!valid) {
-            System.out.println(" To indicate the patient's mode of breathing,");
+            System.out.println("\nTo indicate the patient's mode of breathing,");
             System.out.println("press 'A' for 'Air' or 'O' for 'Oxygen': ");
-            BreathingString = sc.nextLine();
+            BreathingString = sc.nextLine().toUpperCase();
             valid = Validation.validateChar(BreathingString, "A", "O");
         }
         newPatientBreathing = switch (BreathingString) {
@@ -48,9 +51,9 @@ public class RecordResults {
 
         valid = false;
         while (!valid) {
-            System.out.println(" To indicate the patient's level of consciousness,");
+            System.out.println("\nTo indicate the patient's level of consciousness,");
             System.out.println("press 'A' for 'Alert' or 'C' for 'CVPU': ");
-            ConsciousnessString = sc.nextLine();
+            ConsciousnessString = sc.nextLine().toUpperCase();
             valid = Validation.validateChar(ConsciousnessString, "A", "C");
         }
         newPatientConsciousness = switch (ConsciousnessString) {
@@ -61,22 +64,25 @@ public class RecordResults {
 
         valid = false;
         while (!valid) {
-            System.out.println(" Enter respiration rate (per minute): ");
-            newPatientRespiration = sc.nextInt();
+            System.out.println("\nEnter patient's respiration rate (per minute): ");
+            newPatientRespirationString = sc.nextLine();
+            newPatientRespiration = Validation.validateStringAsInt(newPatientRespirationString);
             valid = Validation.validateNumericField(newPatientRespiration, 0, 200);
         }
 
         valid = false;
         while (!valid) {
-            System.out.println(" Enter oxygen saturation (SpO2): ");
-            newPatientSaturation = sc.nextInt();
+            System.out.println("\nEnter patient's oxygen saturation (SpO2): ");
+            newPatientSaturationString = sc.nextLine();
+            newPatientSaturation = Validation.validateStringAsInt(newPatientSaturationString);
             valid = Validation.validateNumericField(newPatientSaturation, 0, 100);
         }
 
         valid = false;
         while (!valid) {
-            System.out.println(" Enter temperature: ");
-            newPatientTemperature = sc.nextFloat();
+            System.out.println("\nEnter patient's temperature: ");
+            newPatientTemperatureString = sc.nextLine();
+            newPatientTemperature = Validation.validateStringAsFloat(newPatientTemperatureString);
             valid = Validation.validateFloat(newPatientTemperature,
                                         (float) 0.0, (float) 100.0);
         }

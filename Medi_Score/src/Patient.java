@@ -20,6 +20,8 @@ public class Patient {
     private int saturation;  // eg. SpO2
     private float temperature;
 
+    private int mediScore = 0;
+
     public Patient(String firstName, String lastName, AirOrOxygen breathing,
                    LevelOfConsciousness consciousness, int respiration, int saturation,
                    float temperature){
@@ -95,13 +97,25 @@ public class Patient {
         return temperature;
     }
 
+    public void setMediScore(int mediScore) {
+        this.mediScore = mediScore;
+    }
+
+    public int getMediScore() {
+        return mediScore;
+    }
+
     @Override
     public String toString(){
         return "Patient{"
-                + "Breathing=" + this.getBreathing()
-                + "Consciousness=" + this.getConsciousness()
-                + "Respiration=" + this.getRespiration()
-                + "Saturation=" + this.getSaturation()
-                + "Temperature=" + this.getTemperature();
+                + "First name = " + this.getFirstName()
+                + ", Last name = " + this.getLastName()
+                + ", Breathing = " + this.getBreathing()
+                + ", Consciousness = " + this.getConsciousness()
+                + ", Respiration = " + this.getRespiration()
+                + ", Saturation = " + this.getSaturation()
+                + ", Temperature = " + this.getTemperature()
+                + ", Medi score = " + this.getMediScore()
+                + "}";
     }
 }
