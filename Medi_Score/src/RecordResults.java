@@ -21,6 +21,7 @@ public class RecordResults {
         int newPatientSaturation = 0;
         String newPatientTemperatureString = "";
         float  newPatientTemperature = 0;
+        int score = 0;
 
         while (!valid) {
             System.out.println("Please enter the patient's first name: ");
@@ -47,7 +48,8 @@ public class RecordResults {
             case "O" -> AirOrOxygen.OXYGEN;
             default -> newPatientBreathing;
         };
-
+        // Update Medi score to reflect the medium which the patient breathes
+        score += newPatientBreathing.getScore();
 
         valid = false;
         while (!valid) {
@@ -61,6 +63,8 @@ public class RecordResults {
             case "C" -> LevelOfConsciousness.CVPU;
             default -> newPatientConsciousness;
         };
+        // Update Medi score to reflect patient's level of consciousness
+        score += newPatientConsciousness.getScore();
 
         valid = false;
         while (!valid) {
@@ -69,6 +73,16 @@ public class RecordResults {
             newPatientRespiration = Validation.validateStringAsInt(newPatientRespirationString);
             valid = Validation.validateNumericField(newPatientRespiration, 0, 200);
         }
+        // Update Medi score to reflect patient's respiration rate
+        if (newPatientRespiration <= 8){
+            score += 3;
+        } else if (newPatientRespiration < 12){
+            score += 1;
+        } else if (newPatientRespiration > 20 && newPatientRespiration <= 24){
+            score += 1;
+        } else if (newPatientRespiration >=25){
+            score += 3;
+        }
 
         valid = false;
         while (!valid) {
@@ -76,6 +90,22 @@ public class RecordResults {
             newPatientSaturationString = sc.nextLine();
             newPatientSaturation = Validation.validateStringAsInt(newPatientSaturationString);
             valid = Validation.validateNumericField(newPatientSaturation, 0, 100);
+        }
+        if (newPatientSaturation <= 83){
+            score += 3;
+        } else if (newPatientSaturation <= 85){
+            score += 2;
+        } else if (newPatientSaturation <= 87){
+            score += 1;
+        } else if ((newPatientSaturation == 93 || newPatientSaturation == 94)
+            && BreathingString == "O"){
+            score += 1;
+        } else if ((newPatientSaturation == 95 || newPatientSaturation == 96)
+                && BreathingString == "O"){
+            score += 2;
+        } else if (newPatientSaturation >= 97
+                && BreathingString == "O"){
+            score += 3;
         }
 
         valid = false;
@@ -88,13 +118,26 @@ public class RecordResults {
         }
         // Round newPatientTemperature to 1 decimal place:
         newPatientTemperature = round(newPatientTemperature, 1);
+        // Update Medi score to reflect the patient's temperature:
+        if (newPatientTemperature <= (float) 35.0){
+            score += 3;
+        } else if (newPatientTemperature <= (float) 36.0){
+            score += 1;
+        } else if (newPatientTemperature >= (float) 38.1
+                && newPatientTemperature <= 39.0){
+            score += 1;
+        } else if (newPatientTemperature >= 39.1){
+            score += 2;
+        }
 
         Patient newPatient = new Patient(newPatientFirstName, newPatientLastName,
                 newPatientBreathing, newPatientConsciousness, newPatientRespiration,
-                newPatientSaturation, newPatientTemperature);
+                newPatientSaturation, newPatientTemperature, score);
 
         return newPatient;
+
     }
+
 
     /*
       Method to round off a number

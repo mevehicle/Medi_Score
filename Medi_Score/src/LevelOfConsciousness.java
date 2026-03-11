@@ -9,7 +9,7 @@ public enum LevelOfConsciousness {
         this.score = score;
     }
 
-    public int getScore(int score){
-        return this.score;
+    public int getScore(){
+        return score;
     }
 }

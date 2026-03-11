@@ -10,6 +10,6 @@ public enum AirOrOxygen {
     }
 
     public int getScore() {
-        return this.score;
+        return score;
     }
 }

@@ -20,11 +20,11 @@ public class Patient {
     private int saturation;  // eg. SpO2
     private float temperature;
 
-    private int mediScore = 0;
+    private int mediScore;
 
     public Patient(String firstName, String lastName, AirOrOxygen breathing,
                    LevelOfConsciousness consciousness, int respiration, int saturation,
-                   float temperature){
+                   float temperature, int mediScore){
         this.firstName = firstName;
         this.lastName = lastName;
 
