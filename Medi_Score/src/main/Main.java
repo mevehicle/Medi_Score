@@ -1,6 +1,5 @@
 package main;
 
-import enums.AirOrOxygen;
 import helpers.Validation;
 import patient.Patient;
 import observations.RecordResults;
@@ -11,13 +10,15 @@ public class Main {
 
         boolean carryOn = true; // Variable to allow repetition of program
         String assessAnother = ""; // Variable to select whether to repeat program
-        boolean valid = false; 
+        boolean valid;
         Scanner scanner = new Scanner(System.in);
         
-        while (carryOn == true) {
+        while (carryOn) {
             Patient patient = RecordResults.recordResults();
+            System.out.println("Results:\n");
             System.out.println(patient);
 
+            valid = false;
             while (!valid) {
                 System.out.println("Would you like to assess another patient?");
                 assessAnother = scanner.nextLine().toUpperCase();
@@ -27,8 +28,6 @@ public class Main {
                 case "Y":
                     continue;
                 case "N":
-                    carryOn = false;
-                    break;
                 default:
                     carryOn = false;
                     break;

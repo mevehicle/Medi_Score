@@ -11,7 +11,7 @@ public class Patient {
       objectifying them.
        It may also be convenient to include fields for
       their NHS number and date of birth.
-       However, using these fields has the side-effect of
+       However, using these fields has the side effect of
       storing data by which they could be identified, hence
       data protection implications.
      */
@@ -24,24 +24,32 @@ public class Patient {
     private int respiration;
     private int saturation;  // eg. SpO2
     private float temperature;
+    private float bloodGlucose;
 
     private int mediScore;
 
     public Patient(String firstName, String lastName, AirOrOxygen breathing,
                    LevelOfConsciousness consciousness, int respiration, int saturation,
-                   float temperature, int mediScore){
+                   float temperature, float bloodGlucose, int mediScore){
         this.firstName = firstName;
         this.lastName = lastName;
 
-        this.breathing = breathing;
         /*
-           the "breathing" attribute indicates whether the patient
+           The "breathing" attribute indicates whether the patient
            is on air or oxygen
-         */
+        */
+        this.breathing = breathing;
+
+        /*
+           The "consciousness" attribute indicates whether the patient
+           is alert or CVPU
+        */
         this.consciousness = consciousness;
+
         this.respiration = respiration;
         this.saturation = saturation;   // eg. SpO2
         this.temperature = temperature;
+        this.bloodGlucose = bloodGlucose; // eg. CBG
         this.mediScore = mediScore;
     }
 
@@ -103,6 +111,14 @@ public class Patient {
         return temperature;
     }
 
+    public void setBloodGlucose(float bloodGlucose) {
+        this.bloodGlucose = bloodGlucose;
+    }
+
+    public float getBloodGlucose() {
+        return bloodGlucose;
+    }
+
     public void setMediScore(int mediScore) {
         this.mediScore = mediScore;
     }
@@ -121,6 +137,7 @@ public class Patient {
                 + "\n Respiration = " + this.getRespiration()
                 + "\n Saturation = " + this.getSaturation()
                 + "\n Temperature = " + this.getTemperature()
+                + "\n CBG = " + this.getBloodGlucose()
                 + "\n________________" +
                   "\n Medi score = " + this.getMediScore()
                 + "\n----------------\n\n";
