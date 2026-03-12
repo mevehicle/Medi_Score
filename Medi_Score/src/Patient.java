@@ -37,6 +37,7 @@ public class Patient {
         this.respiration = respiration;
         this.saturation = saturation;   // eg. SpO2
         this.temperature = temperature;
+        this.mediScore = mediScore;
     }
 
     // Getters and setters for Patient class follow:
@@ -107,15 +108,16 @@ public class Patient {
 
     @Override
     public String toString(){
-        return "Patient{"
-                + "First name = " + this.getFirstName()
-                + ", Last name = " + this.getLastName()
-                + ", Breathing = " + this.getBreathing()
-                + ", Consciousness = " + this.getConsciousness()
-                + ", Respiration = " + this.getRespiration()
-                + ", Saturation = " + this.getSaturation()
-                + ", Temperature = " + this.getTemperature()
-                + ", Medi score = " + this.getMediScore()
-                + "}";
+        return
+                  "First name = " + this.getFirstName()
+                + "\n Last name = " + this.getLastName()
+                + "\n Breathing = " + this.getBreathing()
+                + "\n Consciousness = " + this.getConsciousness()
+                + "\n Respiration = " + this.getRespiration()
+                + "\n Saturation = " + this.getSaturation()
+                + "\n Temperature = " + this.getTemperature()
+                + "\n________________" +
+                  "\n Medi score = " + this.getMediScore()
+                + "\n----------------";
     }
 }
