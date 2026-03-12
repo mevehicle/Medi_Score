@@ -1,3 +1,8 @@
+package patient;
+
+import enums.AirOrOxygen;
+import enums.LevelOfConsciousness;
+
 public class Patient {
 
     /* Though the patient is an object in the OOP sense,
@@ -40,7 +45,7 @@ public class Patient {
         this.mediScore = mediScore;
     }
 
-    // Getters and setters for Patient class follow:
+    // Getters and setters for Patient.Patient class follow:
 
     public void setFirstName(String firstName){
         this.firstName = firstName;

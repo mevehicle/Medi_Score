@@ -1,3 +1,10 @@
+package observations;
+
+import enums.AirOrOxygen;
+import enums.LevelOfConsciousness;
+import helpers.Validation;
+import patient.Patient;
+
 import java.util.Scanner;
 
 public class RecordResults {

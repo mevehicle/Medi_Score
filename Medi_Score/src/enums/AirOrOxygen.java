@@ -1,3 +1,5 @@
+package enums;
+
 public enum AirOrOxygen {
 
     AIR(0),
