@@ -114,7 +114,7 @@ public class Patient {
     @Override
     public String toString(){
         return
-                  "First name = " + this.getFirstName()
+                  "\n First name = " + this.getFirstName()
                 + "\n Last name = " + this.getLastName()
                 + "\n Breathing = " + this.getBreathing()
                 + "\n Consciousness = " + this.getConsciousness()
@@ -123,6 +123,6 @@ public class Patient {
                 + "\n Temperature = " + this.getTemperature()
                 + "\n________________" +
                   "\n Medi score = " + this.getMediScore()
-                + "\n----------------";
+                + "\n----------------\n\n";
     }
 }

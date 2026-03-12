@@ -25,10 +25,10 @@ public class Validation {
 
     // Method to check if user input is one of two characters or not
 
-    public static boolean validateChar(String text, String firstChar, String secondChar){
+    public static boolean validateCharacter(String text, String firstCharacter, String secondCharacter){
         boolean valid;
-        if (!Objects.equals(text, firstChar) && !Objects.equals(text, secondChar)) {
-            System.out.println("Please enter '" + firstChar + "' or '" + secondChar + "'");
+        if (!Objects.equals(text, firstCharacter) && !Objects.equals(text, secondCharacter)) {
+            System.out.println("Please enter '" + firstCharacter + "' or '" + secondCharacter + "'");
             valid = false;
         } else {
             valid = true;
@@ -40,6 +40,10 @@ public class Validation {
     /*
        Method to check whether an input String can be converted to an integer
       and to convert it if possible
+
+        Source - https://stackoverflow.com/a/5585800
+        Posted by Rob Hruska, modified by community. See post 'Timeline' for change history
+        Retrieved 2026-03-12, License - CC BY-SA 4.0
     */
     public static int validateStringAsInt(String toCheck){
         int foo;
@@ -53,8 +57,13 @@ public class Validation {
     }
 
 
-    /* Method to check whether a String can be converted to a double
-   And convert it if possible */
+    /* Method to check whether an input String can be converted to a double
+   And convert it if possible
+
+        Source - https://stackoverflow.com/a/5585800
+        Posted by Rob Hruska, modified by community. See post 'Timeline' for change history
+        Retrieved 2026-03-12, License - CC BY-SA 4.0
+   */
     public static float validateStringAsFloat(String toCheck) {
         float foo;
         try {
