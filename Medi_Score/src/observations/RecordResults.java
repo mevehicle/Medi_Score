@@ -124,10 +124,10 @@ public class RecordResults {
             if (bloodGlucose <= (float) 3.4) {
                 bloodGlucoseScore = 3;
             } else if (bloodGlucose >= (float) 3.5
-                && bloodGlucose <= 3.9) {
+                && bloodGlucose <= (float) 3.9) {
                 bloodGlucoseScore = 2;
             } else if (bloodGlucose >= (float) 5.5
-                    && bloodGlucose <= 5.9) {
+                    && bloodGlucose <= (float) 5.9) {
                 bloodGlucoseScore = 2;
             } else if (bloodGlucose >= (float) 6.0){
                 bloodGlucoseScore = 3;
@@ -135,11 +135,11 @@ public class RecordResults {
         } else if (!fasting){
             if (bloodGlucose <= (float) 4.5) {
                 bloodGlucoseScore = 3;
-            } else if (bloodGlucose >= (float) 4.5
-                    && bloodGlucose <= 5.8) {
+            } else if (bloodGlucose > (float) 4.5
+                    && bloodGlucose <= (float) 5.8) {
                 bloodGlucoseScore = 2;
             } else if (bloodGlucose >= (float) 7.9
-                    && bloodGlucose <= 8.9) {
+                    && bloodGlucose <= (float) 8.9) {
                 bloodGlucoseScore = 2;
             } else if (bloodGlucose >= (float) 9.0){
                 bloodGlucoseScore = 3;
