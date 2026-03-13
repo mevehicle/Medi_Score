@@ -5,6 +5,12 @@ import java.util.Scanner;
 public class ScoreChecker {
     public static void scoreChecker(int score){
 
+        /*
+           Method to print the patient's Medi Score for a specific
+          measurement and inquire whether it has risen by more than
+          2 points in the last 24 hours.
+        */
+
         Scanner scanner = new Scanner(System.in);
 
         boolean valid = false; // Variable to validate keyboard input

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class RecordAirOrOxygen {
 
-    // Method to determine whether the patient breathes air or oxygen
+    // Method to determine whether the patient breathes air or oxygen:
 
     public static AirOrOxygen recordAirOrOxygen(){
 

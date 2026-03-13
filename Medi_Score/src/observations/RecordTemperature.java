@@ -1,7 +1,6 @@
 package observations;
 
 import helpers.RoundFloat;
-import helpers.Validation;
 import java.util.Scanner;
 
 public class RecordTemperature {
@@ -13,15 +12,22 @@ public class RecordTemperature {
         Scanner scanner = new Scanner(System.in);
 
         boolean valid = false; // Variable to validate keyboard input
-        String temperatureString = "";
-        float  temperature = 0;
+        String temperatureString;
+        float temperature = (float) 0.0;
 
         while (!valid) {
-            System.out.println("\nEnter patient's temperature: ");
+            System.out.println("\nEnter patient's temperature in celsius: ");
             temperatureString = scanner.nextLine();
-            temperature = Validation.validateStringAsFloat(temperatureString);
-            valid = Validation.validateFloat(temperature,
-                    (float) 0.0, (float) 100.0);
+            if (temperatureString.matches("[0-9]*([.]{1}[0-9]+){0,1}")) {
+                temperature = Float.parseFloat(temperatureString);
+                if (temperature < 0 || temperature > 100){
+                    System.out.println("Enter numbers and decimal points only, between 0 & 100.");
+                } else {
+                    valid = true;
+                }
+            } else {
+                System.out.println("Enter numbers and decimal points only, between 0 & 100.");
+            }
         }
         // Round temperature to 1 decimal place:
         temperature = RoundFloat.round(temperature, 1);

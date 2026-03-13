@@ -6,7 +6,14 @@ import java.util.Scanner;
 
 public class RecordConsciousness {
 
-    // Method to determine the patient's level of consciousness
+    /*
+       Method to determine the patient's level of consciousness.
+      Values must be either alert or CVPU, where
+      C = new confusion
+      V = responsive to voice
+      P = responsive to pain
+      U = unresponsive
+    */
 
     public static LevelOfConsciousness recordConsciousness(){
 

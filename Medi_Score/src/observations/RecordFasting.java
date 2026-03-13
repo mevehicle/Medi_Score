@@ -5,6 +5,12 @@ import helpers.Validation;
 import java.util.Scanner;
 
 public class RecordFasting {
+
+    /*
+        Method to determine whether the patient is or fasting,
+       in order to calculate the Medi Score for capillary blood glucose:
+    */
+
     public static boolean recordFasting(){
 
         Scanner scanner = new Scanner(System.in);

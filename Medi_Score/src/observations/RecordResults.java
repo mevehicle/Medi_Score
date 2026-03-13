@@ -6,6 +6,11 @@ import patient.Patient;
 
 
 public class RecordResults {
+
+    /*
+       Method to determine patient's physiological measurements.
+      In its turn it will call other methods for each characteristic.
+    */
     public static Patient recordResults(){
 
         String firstName;

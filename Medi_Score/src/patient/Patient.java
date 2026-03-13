@@ -10,7 +10,7 @@ public class Patient {
       more relatable, helping to prevent staff from
       objectifying them.
        It may also be convenient to include fields for
-      their NHS number and date of birth.
+      their NHS number, next-of-kin and emergency contact.
        However, using these fields has the side effect of
       storing data by which they could be identified, hence
       data protection implications.
@@ -53,74 +53,42 @@ public class Patient {
         this.mediScore = mediScore;
     }
 
-    // Getters and setters for Patient.Patient class follow:
-
-    public void setFirstName(String firstName){
-        this.firstName = firstName;
-    }
+    /*
+       Getters for Patient class follow:
+       (Setters are not necessary, as all fields are inputted
+      via keyboard input or constructor)
+    */
 
     public String getFirstName(){
         return firstName;
-    }
-
-    public void setLastName(String lastName){
-        this.lastName = lastName;
     }
 
     public String getLastName(){
         return lastName;
     }
 
-    public void setBreathing(AirOrOxygen breathing){
-        this.breathing = breathing;
-    }
-
     public Enum getBreathing() {
         return breathing;
-    }
-
-    public void setConsciousness(LevelOfConsciousness consciousness){
-        this.consciousness = consciousness;
     }
 
     public Enum getConsciousness() {
         return consciousness;
     }
 
-    public void setRespiration(int respiration) {
-        this.respiration = respiration;
-    }
-
     public int getRespiration() {
         return respiration;
-    }
-
-    public void setSaturation(int saturation) {
-        this.saturation = saturation;
     }
 
     public int getSaturation() {
         return saturation;
     }
 
-    public void setTemperature(float temperature) {
-        this.temperature = temperature;
-    }
-
     public float getTemperature() {
         return temperature;
     }
 
-    public void setBloodGlucose(float bloodGlucose) {
-        this.bloodGlucose = bloodGlucose;
-    }
-
     public float getBloodGlucose() {
         return bloodGlucose;
-    }
-
-    public void setMediScore(int mediScore) {
-        this.mediScore = mediScore;
     }
 
     public int getMediScore() {

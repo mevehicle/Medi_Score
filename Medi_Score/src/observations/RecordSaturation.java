@@ -1,6 +1,5 @@
 package observations;
 
-import helpers.Validation;
 import java.util.Scanner;
 
 public class RecordSaturation {
@@ -12,16 +11,24 @@ public class RecordSaturation {
         Scanner scanner = new Scanner(System.in);
 
         boolean valid = false; // Variable to validate keyboard input
-        String saturationString = "";
+        String saturationString;
         int saturation = 0;
 
         while (!valid) {
             System.out.println("\nEnter patient's oxygen saturation (SpO2): ");
             saturationString = scanner.nextLine();
-            saturation = Validation.validateStringAsInt(saturationString);
-            valid = Validation.validateNumericField(saturation, 0, 100);
+            if (saturationString.matches("[\\d]*")) {
+                saturation = Integer.parseInt(saturationString);
+                if (saturation < 0 || saturation > 100){
+                    System.out.println("Enter whole numbers only, between 0 & 100.");
+                } else {
+                    valid = true;
+                }
+            } else {
+                System.out.println("Enter whole numbers only, between 0 & 100.");
+                scanner.reset();
+            }
         }
-
         return saturation;
     }
 }
